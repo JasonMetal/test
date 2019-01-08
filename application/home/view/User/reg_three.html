@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>趣头条自媒体平台-保护鼓励原创,营造内容生态圈！</title>
+
+    <link rel="stylesheet" href="__CSS__/app.css">
+    <link rel="stylesheet" href="__CSS__/operrator.css">
+    <link rel="stylesheet" href="__CSS__/index3.css">
+    <link rel="stylesheet" href="__STATIC__/plugins/layui/css/layui.css" media="all">
+
+
+</head>
+<body>
+    <div id="app">
+        <div class="nprogress-container"></div>
+            <div class="container-box register el-row">
+                <div class="header-box el-col el-col-24">
+                    <div class="logo"><a href="{:url('index/login')}" class="">&nbsp;</a></div>
+                    <div class="right"><a href="{:url('index/login')}" class="">返回首页</a></div>
+                </div>
+                <form  class="el-form el-form--label-left" method="post">
+                    <div class="register-body el-col el-col-24">
+                        <div class="main step-three">
+                            <div class="step-icon-three"></div>
+                            <div class="reg-box"><!---->
+                                <div class="el-row">
+                                    <div class="account-info"><!---->
+                                        <div class="title">
+                                            <h1>账号信息</h1>
+                                            <div class="tip">每三十天才能更改一次，请慎重填写</div>
+                                        </div>
+
+                                            <div class="el-form-item">
+                                                <label for="nickname" class="el-form-item__label"
+                                                       style="width: 125px;">账号昵称：</label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div class="el-input"><!---->
+                                                        <input id="nickname" name="nickname" autocomplete="off" type="text" rows="2"
+                                                               validateevent="true"
+                                                               class="el-input__inner" ><!----><!---->
+                                                        <div class="tip">2-8个字，请勿使用特殊符号或明显营销推广意图的媒体名词</div>
+                                                        <div class="el-form-item__error">
+                                                            请输入2-8个字的账号昵称
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                            <div class="el-form-item">
+                                                <label for="description" class="el-form-item__label"
+                                                       style="width: 125px;">账号介绍：</label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div class="el-textarea">
+                                                        <textarea id="introduce" name="account_introduce" type="textarea" rows="2" autocomplete="on"
+                                                                  validateevent="true"
+                                                                  class="el-textarea__inner"
+                                                                  style="min-height: 33px;">
+                                                        </textarea>
+                                                        <div class="tip">10-30个字，要求内容完整通顺、无特殊符号，请勿添加任何联系方式如微博、手机号、QQ</div><!---->
+                                                        <div class="el-form-item__error">
+                                                            请输入10-30个字的账号介绍
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="el-form-item">
+                                                <label for="territory" class="el-form-item__label"
+                                                       style="width: 125px;">媒体领域：
+                                                </label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div class="el-select territory"><!---->
+                                                        <div class="el-input el-input--suffix sj2"><!---->
+                                                            <input type="hidden" name="media_area" value="" id="fill_media_area" class="">
+                                                            <input name="choose_media_area" autocomplete="off" placeholder="请选择" size=""
+                                                                   readonly="readonly"
+                                                                   type="text"
+                                                                   rows="2" class="el-input__inner">
+                                                            <!----><span class="el-input__suffix">
+                                                                <span class="el-input__suffix-inner">
+                                                                    <i class="el-select__caret el-input__icon el-icon-arrow-up"
+                                                                       id="sj2"></i>
+                                                                    <!---->
+                                                                </span><!---->
+                                                            </span><!---->
+                                                            <div class="el-form-item__error">
+                                                                请输媒体领域
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="mtly" class="el-select-dropdown el-popper"
+                                                             style="display: none; min-width: 375px;">
+                                                            <div class="el-scrollbar">
+                                                                <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                     style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-select-dropdown__list"
+                                                                        style="position: relative;">
+                                                                        <div class="resize-triggers">
+                                                                            <div class="expand-trigger">
+                                                                                <div style="width: 1px; height: 1px;"></div>
+                                                                            </div>
+                                                                            <div class="contract-trigger"></div>
+                                                                        </div><!---->
+                                                                        <li class="el-select-dropdown__item media_area" id="aaaa"><span>社会</span></li>
+                                                                        <li class="el-select-dropdown__item media_area" ><span>三农</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>奇闻</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>搞笑</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>娱乐</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>影视</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>美食</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>汽车</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>养生</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>健康</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>育儿</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>教育</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>时尚</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>科技</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>数码</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>体育</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>旅游</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>星座</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>心理</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>财经</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>励志</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>情感</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>故事</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>宠物</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>家居</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>房产</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>收藏</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>军事</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>历史</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>游戏</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>文化</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>时政</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>音乐</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>生活</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>文学</span></li>
+                                                                        <li class="el-select-dropdown__item media_area"><span>艺术</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb"
+                                                                         style="transform: translateX(0%);"></div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb"
+                                                                         style="transform: translateY(0%);"></div>
+                                                                </div>
+                                                            </div><!----></div>
+                                                        <div class="resize-triggers">
+                                                            <div class="expand-trigger">
+                                                                <div style="width: 376px; height: 41px;"></div>
+                                                            </div>
+                                                            <div class="contract-trigger"></div>
+                                                        </div>
+                                                    </div><!----></div>
+                                            </div>
+                                            <div class="el-form-item avatar-uploader">
+                                                <label for="avatar"
+                                                       class="el-form-item__label"
+                                                       style="width: 125px;">账号头像：
+                                                </label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div>
+                                                        <div tabindex="0" class="el-upload el-upload--text image">
+                                                            <i class="el-icon-plus img-uploader-icon"></i> <!---->
+                                                            <img id="avatar" src="__IMG__/default_avatar.jpg">
+                                                            <input type="hidden" name="avatar" value="">
+                                                            <input type="file" name="file" class="el-upload__input">
+                                                        </div>
+                                                    </div>
+                                                    <div class="tip">头像图片为200x200，不超过5M要求清晰、健康、代表账号形象请勿使用二维码</div><!---->
+                                                </div>
+                                            </div>
+
+                                            <div class="el-dialog__wrapper dialog-img-cropper" style="display: none;">
+                                                <div class="el-dialog" style="width: 620px; margin-top: 15vh;">
+                                                    <div class="el-dialog__header">
+                                                        <div class="dialog-title">
+                                                            裁剪图片
+                                                            <span>（请保证封面清晰、头像完整，有助于内容曝光）</span>
+                                                        </div>
+                                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                            <i class="el-dialog__close el-icon el-icon-close"></i>
+                                                        </button>
+                                                    </div><!---->
+                                                    <div class="el-dialog__footer">
+                                                        <div class="dialog-footer">
+                                                            <button type="button" class="el-button el-button--default"><!---->
+                                                                <!----><span>取 消</span>
+                                                            </button>
+                                                            <button type="button" class="el-button el-button--primary"><!---->
+                                                                <!----><span>确 定</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="el-dialog__wrapper dialog-img-preview" size="tiny" style="display: none;">
+                                                <div class="el-dialog" style="margin-top: 15vh;">
+                                                    <div class="el-dialog__header">
+                                                        <span class="el-dialog__title"></span>
+                                                        <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                            <i class="el-dialog__close el-icon el-icon-close"></i>
+                                                        </button>
+                                                    </div><!----><!----></div>
+                                            </div>
+                                    </div>
+                                </div> <!---->
+                                <div class="el-row">
+                                    <div class="operator-info">
+                                        <div class="title">
+                                            <h1>账号归属人信息</h1>
+                                            <div class="tip">归属人是该平台账号资金收益的归属方。请务必真实填写，一经审核，不可更改</div>
+                                        </div>
+                                        <!--<form class="el-form el-form&#45;&#45;label-left">-->
+                                        <div class="el-form-item">
+                                            <label for="operators_name" class="el-form-item__label"
+                                                   style="width: 125px;">姓名：
+                                            </label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="el-input"><!---->
+                                                    <input autocomplete="off" type="text" rows="2"
+                                                           validateevent="true"
+                                                           id="real_name"
+                                                           name="real_name"
+                                                           class="el-input__inner"><!----><!---->
+                                                    <!---->
+                                                    <div class="el-form-item__error">
+                                                        请输入姓名
+                                                    </div>
+                                                </div><!---->
+
+                                            </div>
+                                        </div>
+                                        <div class="el-form-item">
+                                            <label for="operators_identity_card"
+                                                   class="el-form-item__label"
+                                                   style="width: 125px;">证件号码：
+                                            </label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="el-col el-col-8">
+                                                    <div class="el-select"><!---->
+                                                        <div id="sfz" class="el-input el-input--suffix"><!---->
+                                                            <input type="hidden" name="id_card" value="" id="fill_id_card" class="">
+                                                            <input autocomplete="off"
+                                                                   name="choose_id_card"
+                                                                   placeholder="请选择"
+                                                                   size=""
+                                                                   readonly="readonly"
+                                                                   type="text"
+                                                                   rows="2"
+                                                                   class="el-input__inner">
+                                                            <!---->
+                                                            <span class="el-input__suffix">
+                                                                    <span class="el-input__suffix-inner">
+                                                                        <i id="sfzsj"
+                                                                           class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+                                                                        <!----></span><!----></span><!---->
+                                                        </div>
+                                                        <div id="sfzx" class="el-select-dropdown el-popper"
+                                                             style="display: none; min-width: 124.984px;">
+                                                            <div class="el-scrollbar">
+                                                                <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                     style="margin-bottom: -17px; margin-right: -17px;">
+                                                                    <ul class="el-scrollbar__view el-select-dropdown__list"
+                                                                        style="position: relative;"><!---->
+                                                                        <li class="el-select-dropdown__item selected" id="id_card_val">
+                                                                            <span>身份证</span>
+                                                                        </li>
+                                                                        <div class="resize-triggers">
+                                                                            <div class="expand-trigger">
+                                                                                <div style="width: 1px; height: 1px;"></div>
+                                                                            </div>
+                                                                            <div class="contract-trigger"></div>
+                                                                        </div>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-horizontal">
+                                                                    <div class="el-scrollbar__thumb"
+                                                                         style="transform: translateX(0%);">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="el-scrollbar__bar is-vertical">
+                                                                    <div class="el-scrollbar__thumb"
+                                                                         style="transform: translateY(0%);">
+                                                                    </div>
+                                                                </div>
+                                                            </div><!----></div>
+                                                        <div class="resize-triggers">
+                                                            <div class="expand-trigger">
+                                                                <div style="width: 126px; height: 41px;"></div>
+                                                            </div>
+                                                            <div class="contract-trigger"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="float-right el-col el-col-15">
+                                                    <div class="el-input"><!---->
+                                                        <input autocomplete="off" placeholder="请输入证件号码"
+                                                               type="text" rows="2"
+                                                               validateevent="true"
+                                                               id="id_card"
+                                                               name="id_card"
+                                                               class="el-input__inner"><!----><!---->
+                                                        <!---->
+                                                        <div class="el-form-item__error">
+                                                            请输入合法的证件号码
+                                                        </div>
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
+                                        <div class="el-form-item id-photo-uploader">
+                                            <label class="el-form-item__label"
+                                                   style="width: 125px;">证件照片：</label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="el-form-item pic-big"><!---->
+                                                    <div class="el-form-item__content">
+                                                        <div>
+                                                            <div tabindex="0" class="el-upload el-upload--text" id="image5">
+                                                                <img id="handheld_certificate" src="__IMG__/pic1.png">
+                                                                <input type="hidden" name="handheld_certificate" value="">
+                                                                <i class="el-icon-plus img-uploader-icon">手持证件照</i>
+                                                                <!---->
+                                                                <input name="" type="file" name="file"
+                                                                       class="el-upload__input">
+                                                            </div>
+                                                        </div><!---->
+                                                    </div>
+                                                </div>
+                                                <div class="el-form-item pic-small"><!---->
+                                                    <div class="el-form-item__content">
+                                                        <div>
+                                                            <div tabindex="0" class="el-upload el-upload--text" id="image3">
+
+                                                                <img id="obverse_side" src="__IMG__/pic3.png">
+
+                                                                <input type="hidden" name="obverse_side" value="">
+
+
+                                                                <i class="el-icon-plus img-uploader-icon">证件照正面</i>
+                                                                <!---->
+                                                                <input  type="file" name="file"
+                                                                       class="el-upload__input" style="display: inline-block;">
+                                                            </div>
+                                                        </div><!---->
+                                                    </div>
+                                                </div>
+                                                <div class="el-form-item pic-small pic-back"><!---->
+                                                    <div class="el-form-item__content">
+                                                        <div>
+                                                            <div tabindex="0" class="el-upload el-upload--text" id="image4">
+                                                                <img src="__IMG__/pic2.png" id="reverse_side">
+                                                                <input type="hidden" name="reverse_side" value="">
+                                                                <i class="el-icon-plus img-uploader-icon">证件照背面</i>
+                                                                <!---->
+                                                                <input name="" type="file" name="file"
+                                                                       class="el-upload__input">
+                                                            </div>
+                                                        </div><!---->
+                                                    </div>
+                                                </div>
+                                                <div class="tip">证件号码必须清晰可识别，不超过2M，手持证件照必须有趣头条字样</div><!----></div>
+                                        </div>
+                                        <div class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 125px;">地址：</label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="el-col el-col-11">
+                                                    <div class="el-form-item"><!---->
+                                                        <div class="el-form-item__content">
+                                                            <div class="el-select"><!---->
+                                                                <!--<input id="city_id" type="hidden" value="{$city_id}">-->
+                                                                <!--城市id-->
+                                                                <input id="city_id" name="city"  type="hidden" value="">
+                                                                <!--省份id-->
+                                                                <input id="province_id" name="province" type="hidden" value="">
+                                                                <!--循环出省份-->
+                                                                <div class="fl y-choose-address">
+
+                                                                </div>
+
+                                                                <div id="sf" class="el-input el-input--suffix"><!---->
+                                                                    <!--<input autocomplete="off" placeholder="请选择省份" size=""-->
+                                                                           <!--readonly="readonly" type="text" rows="2"-->
+                                                                           <!--class="el-input__inner">&lt;!&ndash;&ndash;&gt;-->
+                                                                            <select class="el-input__inner"  id="sheng">
+                                                                                <option value="">请选择省级</option>
+                                                                                {volist name="provinces" id="vo"}
+                                                                                <option value="{$vo.id}">
+                                                                                    {$vo.name}
+                                                                                </option>
+                                                                                {/volist}
+                                                                            </select>
+
+                                                                            <!--<select id="qu">-->
+                                                                            <!--<option value="">请选择县级</option>-->
+                                                                            <!--</select>-->
+                                                                    <!--<span class="el-input__suffix">-->
+                                                                            <!--<span class="el-input__suffix-inner">-->
+                                                                                <!--<i class="el-select__caret el-input__icon el-icon-arrow-up"></i>-->
+                                                                                <!--&lt;!&ndash;&ndash;&gt;-->
+                                                                            <!--</span>&lt;!&ndash;&ndash;&gt;-->
+                                                                    <!--</span>&lt;!&ndash;&ndash;&gt;-->
+                                                                </div>
+                                                                <div class="el-select-dropdown el-popper"
+                                                                     style="display: none; min-width: 171.859px;">
+                                                                    <div class="el-scrollbar">
+                                                                        <!--<div class="el-select-dropdown__wrap el-scrollbar__wrap"-->
+                                                                             <!--style="margin-bottom: -17px; margin-right: -17px;">-->
+                                                                            <!--<ul class="el-scrollbar__view el-select-dropdown__list"-->
+                                                                                <!--style="position: relative;">-->
+
+
+                                                                                <!--<div class="resize-triggers">-->
+                                                                                    <!--<div class="expand-trigger">-->
+                                                                                        <!--<div style="width: 1px; height: 1px;"></div>-->
+                                                                                    <!--</div>-->
+                                                                                    <!--<div class="contract-trigger"></div>-->
+                                                                                <!--</div>-->
+                                                                            <!--</ul>-->
+                                                                        <!--</div>-->
+                                                                        <div class="el-scrollbar__bar is-horizontal">
+                                                                            <div class="el-scrollbar__thumb"
+                                                                                 style="transform: translateX(0%);">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="el-scrollbar__bar is-vertical">
+                                                                            <div class="el-scrollbar__thumb"
+                                                                                 style="transform: translateY(0%);">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!---->
+                                                                </div>
+                                                                <div class="resize-triggers">
+                                                                    <div class="expand-trigger">
+                                                                        <div style="width: 173px; height: 41px;"></div>
+                                                                    </div>
+                                                                    <div class="contract-trigger"></div>
+                                                                </div>
+                                                            </div><!---->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="float-right el-col el-col-11">
+                                                    <div class="el-form-item"><!---->
+                                                        <div class="el-form-item__content">
+                                                            <div class="el-select"><!---->
+                                                                <select class="el-input__inner" id="shi">
+                                                                    <option value="">请选择市/区</option>
+                                                                </select>
+                                                                <!--<div id="sq" class="el-input el-input&#45;&#45;suffix">&lt;!&ndash;&ndash;&gt;-->
+                                                                    <!--<input-->
+                                                                            <!--autocomplete="off" placeholder="请选择市/区" size=""-->
+                                                                            <!--readonly="readonly" type="text" rows="2"-->
+                                                                            <!--class="el-input__inner">&lt;!&ndash;&ndash;&gt;-->
+                                                                    <!--<span class="el-input__suffix">-->
+                                                                            <!--<span class="el-input__suffix-inner">-->
+                                                                                <!--<i class="el-select__caret el-input__icon el-icon-arrow-up"></i>-->
+                                                                                <!--&lt;!&ndash;&ndash;&gt;-->
+                                                                            <!--</span>&lt;!&ndash;&ndash;&gt;-->
+                                                                        <!--</span>&lt;!&ndash;&ndash;&gt;-->
+                                                                <!--</div>-->
+                                                                <div class="el-select-dropdown el-popper"
+                                                                     style="display: none; min-width: 171.859px;">
+                                                                    <div class="el-scrollbar" style="display: none;">
+                                                                        <div class="el-select-dropdown__wrap el-scrollbar__wrap"
+                                                                             style="margin-bottom: -17px; margin-right: -17px;">
+                                                                            <ul class="el-scrollbar__view el-select-dropdown__list"
+                                                                                style="position: relative;">
+                                                                                <div class="resize-triggers">
+                                                                                    <div class="expand-trigger">
+                                                                                        <div style="width: 1px; height: 1px;"></div>
+                                                                                    </div>
+                                                                                    <div class="contract-trigger"></div>
+                                                                                </div>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="el-scrollbar__bar is-horizontal">
+                                                                            <div class="el-scrollbar__thumb"
+                                                                                 style="transform: translateX(0%);">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="el-scrollbar__bar is-vertical">
+                                                                            <div class="el-scrollbar__thumb"
+                                                                                 style="transform: translateY(0%);">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="el-select-dropdown__empty">无数据</p>
+                                                                </div>
+                                                                <div class="resize-triggers">
+                                                                    <div class="expand-trigger">
+                                                                        <div style="width: 173px; height: 41px;"></div>
+                                                                    </div>
+                                                                    <div class="contract-trigger"></div>
+                                                                </div>
+                                                            </div><!---->
+                                                        </div>
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
+                                        <div class="el-form-item is-success">
+                                            <label for="operators_phone"
+                                                   class="el-form-item__label"
+                                                   style="width: 125px;">手机号：
+                                            </label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="phone-yzm el-input el-input-group el-input-group--append">
+                                                    <!---->
+                                                    <input id="mobile" autocomplete="off" type="text" rows="2" name="mobile"
+                                                           value="{$mobile}"
+                                                           validateevent="true" class="el-input__inner"><!----><!---->
+                                                    <div class="tip">
+                                                        <div class="el-form-item__error">
+                                                            请输入手机号
+                                                        </div>
+                                                    </div>
+                                                    <div class="el-input-group__append"><a id="fixMobile">修改手机号</a></div>
+                                                </div><!---->
+                                            </div>
+                                        </div> <!---->
+          <div class="el-form-item is-error" style="display: none"><label for="captcha"
+                                                                                                class="el-form-item__label"
+                                                                                                style=" width: 125px;">手机验证码：</label>
+                                    <div class="el-form-item__content" style="margin-left: 125px;">
+                                        <div class="phone-yzm el-input el-input-group el-input-group--append">
+                                            <!----><input autocomplete="off" type="text" rows="2" validateevent="true"
+                                                          class="el-input__inner"><!----><!---->
+                                            <div class="el-input-group__append"><a>发送验证码</a></div>
+                                        </div>
+                                        <div class="el-form-item__error">
+                                            请输入验证码
+                                        </div>
+                                    </div>
+                                </div>
+                                        <div class="el-form-item">
+                                            <label for="operators_email" class="el-form-item__label"
+                                                   style="width: 125px;">邮箱：</label>
+                                            <div class="el-form-item__content" style="margin-left: 125px;">
+                                                <div class="el-input"><!---->
+                                                    <input name="email" autocomplete="off" type="text" rows="2"
+                                                           validateevent="true"
+                                                           id="mailbox"
+                                                           class="el-input__inner"><!----><!---->
+                                                    <div class="el-form-item__error">
+                                                        请输入合法的邮箱
+                                                    </div>
+                                                    <!---->
+                                                </div><!---->
+                                            </div>
+                                        </div>
+
+                                        <div class="el-dialog__wrapper dialog-img-captcha" style="display: none;">
+                                            <div class="el-dialog" style="width: 30%; margin-top: 15vh;">
+                                                <div class="el-dialog__header">
+                                                    <span class="el-dialog__title">请填写图片验证码</span>
+                                                    <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                        <i class="el-dialog__close el-icon el-icon-close"></i>
+                                                    </button>
+                                                </div><!---->
+                                                <div class="el-dialog__footer">
+                                                    <div class="dialog-footer">
+                                                        <button type="button" class="el-button el-button--default"><!---->
+                                                            <!----><span>取 消</span>
+                                                        </button>
+                                                        <button type="button" class="el-button el-button--primary"><!---->
+                                                            <!----><span>提 交</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="el-dialog__wrapper dialog-img-preview" size="tiny" style="display: none;">
+                                            <div class="el-dialog" style="margin-top: 15vh;">
+                                                <div class="el-dialog__header">
+                                                    <span class="el-dialog__title"></span>
+                                                    <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                        <i class="el-dialog__close el-icon el-icon-close"></i>
+                                                    </button>
+                                                </div><!----><!---->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-row">
+                                    <div class="auxiliary-info">
+                                        <div class="title">
+                                            <h1>辅助信息（选填）</h1>
+                                            <div class="tip">上传资质证明可提高审核通过率</div>
+                                        </div>
+                                        <!--<form class="el-form el-form&#45;&#45;label-left">-->
+                                            <div class="el-form-item">
+                                                <label for="notes" class="el-form-item__label"
+                                                       style="width: 125px;">辅助材料：
+                                                </label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div class="el-textarea">
+                                                        <textarea id="fzcl" name="auxiliary_materials" type="textarea" rows="5"
+                                                                  autocomplete="off"
+                                                                  validateevent="true"
+                                                                  class="el-textarea__inner"
+                                                                  style="min-height: 33px;">
+                                                        </textarea>
+                                            <div class="el-form-item__error">
+                                                请输入10—300个字以内
+                                            </div>
+                                        </div>
+                                                    <div class="tip">10 —
+                                                        300个字，请提供您本人在其他各大自媒体平台发表的文章链接（首选）、微信公众号链接，我们会根据您提供的文章作为参考依据，审核您申请的账号
+                                                    </div><!---->
+                                                </div>
+                                            </div>
+                                            <div class="el-form-item certificate-uploader">
+                                                <label class="el-form-item__label"
+                                                       style="width: 125px;">专业资质：
+                                                </label>
+                                                <!--图片路径-->
+                                                <input type="hidden" name="professional_qualification" id=""
+                                                       value="">
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+
+                                                    <div>
+                                                        <ul class="el-upload-list el-upload-list--picture-card"></ul>
+                                                        <div tabindex="0" class="el-upload el-upload--picture-card" id="image2">
+                                                            <i class="el-icon-plus img-uploader-icon"></i>
+                                                            <img id="professional_qualification" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522651442044&di=83e11e0c68dc67aa92fb72cb88267d58&imgtype=0&src=http%3A%2F%2Fdocs.ebdoor.com%2FImage%2FCompanyCertificate%2F27%2F270663.jpg">
+                                                            <input name="" type="file"
+                                                                   name="file"
+                                                                   class="el-upload__input">
+                                                            <!--图片-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="tip">请上传清晰的图片，大小不超过2M</div><!---->
+                                                </div>
+
+
+                                            </div>
+                                            <div class="el-form-item">
+                                                <label class="el-form-item__label" style="width: 125px;">其他联系方式：</label>
+                                                <div class="el-form-item__content" style="margin-left: 125px;">
+                                                    <div class="el-input"><!---->
+                                                        <input name="wechat" autocomplete="off" placeholder="微信"
+                                                               type="text" rows="2" validateevent="true"
+                                                               class="el-input__inner"><!----><!---->
+                                                        <!---->
+                                                        <input name="qq" autocomplete="off" placeholder="QQ"
+                                                               type="text" rows="2" validateevent="true"
+                                                               class="el-input__inner"><!----><!---->
+                                                        <!---->
+                                                    </div><!---->
+                                                </div>
+                                            </div>
+                                        <!--</form>-->
+                                        <div class="el-dialog__wrapper dialog-img-preview" size="tiny" style="display: none;">
+                                            <div class="el-dialog" style="margin-top: 15vh;">
+                                                <div class="el-dialog__header">
+                                                    <span class="el-dialog__title"></span>
+                                                    <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                        <i class="el-dialog__close el-icon el-icon-close"></i>
+                                                    </button>
+                                                </div><!----><!---->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="align-center el-row">
+                                    <button type="button" id="pushNickName" class="el-button register-btn el-button--primary"><!---->
+                                        <!----><span>提交</span>
+                                    </button>
+                                </div>
+
+                        </div>
+
+                </div>
+                </form>
+            </div>
+    </div>
+<div style="display: none;">
+    <span id="cnzz_stat_icon_1264696607">
+        <a href="http://www.cnzz.com/stat/website.php?web_id=1264696607"
+           target="_blank" title="站长统计">站长统计</a>
+    </span>
+</div>
+</body>
+<script type="text/javascript" src="__JS__/jquery-2.0.3.min.js"></script>
+<script src="__STATIC__/plugins/layui/layui.js"></script>
+
+<script type="text/javascript">
+    //点击下拉框 选中媒体领域
+    $(".media_area").click(function () {
+        $(".media_area").css("color","black");
+        //填写媒体领域
+        var tmp =$(this).find("span").text();
+        //赋值到隐藏域 input
+        $("#fill_media_area").attr("value",tmp);;
+        //填充的 请选择的input
+        var ret = $("input[name='choose_media_area']").attr("value",tmp);
+        if(ret){
+            $(this).css("color","green");
+            //媒体领域
+            $("#mtly").hide(function () {
+            });
+        }
+    })
+    //选中身份证 input框
+    $("#id_card_val").click(function () {
+        var tmp =$(this).find("span").text();
+        //赋值到隐藏域 input
+        $("#fill_id_card").attr("value",tmp);;
+        //填充的 请选择的input
+        var ret = $("input[name='choose_id_card']").attr("value",tmp);
+        if(ret){
+            $(this).css("color","green");
+            //媒体领域
+            $("#sfzx").hide(function () {
+            });
+        }
+    })
+    /********************地址 **********************************/
+//    var province_id = $("#province_id").val();
+//    if (province_id != "" && province_id != undefined) {
+//        $("#sheng").val(province_id);
+//        FillShi();
+//    }
+//    var city_id = $("#city_id").val();
+//    if (city_id != "" && typeof(city_id)!="undefined") {
+////        FillQu();
+//    }
+    // },100);
+    $("#sheng").change(function () { //当元素的值发生改变时，会发生 change 事件,该事件仅适用于文本域（text field），以及 textarea 和 select 元素。
+        //加载市
+
+        FillShi();
+        var pcode = $("#sheng").val();
+        var city_id = $("#city_id").val();
+        if (city_id != "") {
+        }
+        //赋值到隐藏域
+        $("#province_id").val(pcode);
+    });
+    //当市选中变化，重新加载区
+    $("#shi").change(function () {
+        //加载区
+//        FillQu();
+        var shi_val = $('#shi option:selected') .val();//选中的值
+        //赋值到隐藏域
+        $("#city_id").val(shi_val);
+    })
+    //加载市信息
+    function FillShi() {
+        //取父级代号
+        var pcode = $("#sheng").val();
+        //根据父级代号查数据
+        $.ajax({
+            //取消异步，也就是必须完成上面才能走下面
+            async: false,
+            url: "{:url('user/get_city')}",
+            data: {id: pcode},
+            type: "POST",
+            dataType: "JSON",
+            success: function (city) {
+//                var city_id = $("#city_id").val();
+                var city_id = pcode;
+                var str = "<option value='-1' id='default_city'>" + '请选择市/区' + "</option>";
+                var str1 = "<option value=''>" + '请选择区级' + "</option>";
+//                var city = JSON.parse(data);
+                //遍历数组，把它放入sj
+                console.log(city);
+                if (city.code == false) {
+                    str = str;
+                    $("#shi").find("*").remove();
+                } else {
+                    for (var sj in city.data) {
+                        //<option value="11">北京</option>
+                        if (city.data[sj]['id'] != city_id) {
+                            str = str + "<option value='" + city.data[sj]['id'] + "'>" + city.data[sj]['name'] + "</option>";
+//                            str = str + "<option value='" + city.data[sj]['id'] + "'selected='selected'>" + city.data[sj]['name'] + "</option>";
+                        } else {
+                            str = str + "<option value='" + city.data[sj]['id'] + "'selected='selected'>" + city.data[sj]['name'] + "</option>";
+                        }
+                    }
+                }
+                $("#shi").html(str);
+            }
+        });
+
+    }
+    // var pcode = qu_region_id;
+
+    /********************地址 end**********************************/
+    /*********************修改手机号************************************/
+    //修改手机号
+    $("#fixMobile").click(function () {
+        //修改手机号的
+        var mobile = $("#mobile").val();
+        $.ajax({
+            url: "{:url('user/fixMobile')}",
+            type: 'POST',
+            async: false,//是否异步请求
+            data: {
+                mobile: mobile,
+            },
+            success: function (result) {
+                if (result.code == 200) {
+//                    var url ="{:url('index/login')}";
+                    layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+//                    window.location.href = url;
+                } else {
+                    layer.msg(result.msg, {icon: 2, time: 1500, shade: 0.1,});
+                    //手机不合法
+                }
+            }
+        });
+    });
+    /*********************修改手机号 end************************************/
+
+    /*********************提交 资料 待审核************************************/
+    $("#pushNickName").click(function () {
+        //账号头像
+//        var avatar = $("#avatar").val();
+        /*********账号归属人信息*************/
+        //姓名
+        //证件号码
+        //证件照正面
+        //证件照背面
+        //手持证件照
+        //修改手机号的
+//        var mobile = $("mobile").val();
+        /*********账号归属人信息*************/
+        /************辅助信息（选填）************/
+        //辅助材料
+        //专业资质 照片
+        //其他联系方式
+        /*************辅助信息（选填）******/
+        var result = checkRegStepTree();
+//        if (!result) {
+//            return false;
+//        }
+            $.ajax({
+//            url:encodeURI("{:url('user/reg_three')}"),
+                url: "{:url('user/reg_three')}",
+                type: 'POST',
+                dataType: "json",//数据格式
+                async: false,//是否异步请求
+                data:$("form").serialize(),
+                success: function (result) {
+                    console.log(result);
+                    if (result.code == 201) {
+//                        alert(result.msg);
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+                        //提交到审核 让用户等通知
+//                        var url = "{:url('index/login')}";
+//                        window.location.href = url;
+                    }else{
+                        layer.msg(result.msg, {
+                            icon: 2,
+                            time: 1500,
+                            shade: 0.1,
+                        });
+                    }
+                }
+            });
+
+
+    });
+    /*********************提交 资料 待审核 end************************************/
+
+
+</script>
+<script type="text/javascript">
+    layui.use('upload',function(){
+        var upload1 = layui.upload,
+        upload2 = layui.upload,
+                jq = layui.jquery;
+        upload1.render({
+            url: '{:url("UpFiles/upload")}'
+            ,data:'{type:1}'
+            ,elem:'.image'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                layer.close(loading);
+                console.log(res);
+                jq('input[name="avatar"]').val(res.url);
+                //jq('#img_av').val(res.url);
+                avatar.src = "__PUBLIC__"+res.url;
+                layer.msg(res.info, {icon: 1, time: 1000});
+            }
+        });
+//        身份证照片
+        upload1.render({
+            url: '{:url("UpFiles/upload")}'
+            ,data:'{type:1}'
+            ,elem:'#image3'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                layer.close(loading);
+                jq('input[name="obverse_side"]').val(res.url);
+                obverse_side.src = "__PUBLIC__"+res.url;
+                console.log(obverse_side.src);
+                layer.msg(res.info, {icon: 1, time: 1000});
+            }
+        });
+        upload1.render({
+
+            url: '{:url("UpFiles/upload")}'
+            ,data:'{type:1}'
+            ,elem:'#image4'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                layer.close(loading);
+                // jq('input[name=img]').val(res.url);
+                jq('input[name="reverse_side"]').val(res.url);
+                reverse_side.src = "__PUBLIC__"+res.url;
+                layer.msg(res.info, {icon: 1, time: 1000});
+            }
+        });
+        upload1.render({
+            url: '{:url("UpFiles/upload")}'
+            ,data:'{type:1}' //类型为 前台home传的
+            ,elem:'#image5'
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                layer.close(loading);
+                // jq('input[name=img]').val(res.url);
+                jq('input[name="handheld_certificate"]').val(res.url);
+
+                handheld_certificate.src = "__PUBLIC__"+res.url;
+                layer.msg(res.info, {icon: 1, time: 1000});
+            }
+        });
+        upload1.render({
+            url: '{:url("UpFiles/upload")}'
+            ,elem:'#image2'
+            ,data:'{type:1}' //类型为 前台home传的
+            ,ext: 'jpg|png|gif'
+            ,area: ['500', '500px']
+            ,before: function(input){
+                loading = layer.load(2, {
+                    shade: [0.2,'#000']
+                });
+            }
+            ,done: function(res){
+                layer.close(loading);
+                // jq('input[name=img]').val(res.url);
+                //专业资质
+                jq('input[name="professional_qualification"]').val(res.url);
+//                jq('#img_pro_au').val(res.url);
+                professional_qualification.src = "__PUBLIC__"+res.url;
+                layer.msg(res.info, {icon: 1, time: 1000});
+            }
+        });
+
+    })
+    layui.use('upload',function(){
+        var upload = layui.upload,
+            jq = layui.jquery;
+
+    })
+
+
+</script>
+
+
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/zc1.js"></script>
+<script>
+    $(".el-select-dropdown__item").click(function () {
+        $(this).addClass("selected").siblings().removeClass("selected");
+        var zhi = $(this).text();
+        var zhi = $(this).find("span").text();
+        $(this).parents(".el-popper").prev(".el-input--suffix").find("input").val(zhi);
+        $(this).parents(".el-popper").prev(".el-input--suffix").find("input").css("border-color", "#67c23a");
+    })
+    $(".el-input-group__append")
+</script>
+</html>

@@ -1,0 +1,1256 @@
+{include file="Public/top"/}
+dirname($_SERVER['SCRIPT_NAME']);
+<link href="/static/home/css/scrouse.css" rel="stylesheet">
+<style type="text/css">
+    .el-pagination a {
+        color: #00b593;
+    }
+
+    .screen li > a > img {
+        width: 100%;
+        height: 117px;
+    }
+
+    .layui-upload-file {
+        opacity: 0;
+    }
+</style>
+<body class="">
+<div id="app">
+    <div class="nprogress-container"></div>
+    <div class="container-box el-row">
+        {include file="Public/header"/}
+        <div class="el-col el-col-24">
+            <div class="main-box">
+                {include file="Public/side"/}
+                <div class="content-box">
+                    <div class="account">
+                        <div class="account-header">
+                            <div class="el-tabs el-tabs--top">
+                                <div class="el-tabs__header is-top">
+                                    <div class="el-tabs__nav-wrap is-top">
+                                        <div class="el-tabs__nav-scroll">
+                                            <div role="tablist" class="el-tabs__nav"
+                                                 style="transform: translateX(0px);">
+                                                <div class="el-tabs__active-bar is-top"
+                                                     style="width: 56px; transform: translateX(0px);">
+                                                </div>
+                                                <div id="tab-accountInfo" aria-controls="pane-accountInfo" role="tab"
+                                                     aria-selected="true" tabindex="0"
+                                                     class="el-tabs__item is-top is-active">账号信息
+                                                </div>
+
+                                                <!--<div id="tab-accountSetting" aria-controls="pane-accountSetting"-->
+                                                <!--role="tab" tabindex="-1" class="el-tabs__item is-top">账号设置-->
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="resize-triggers">
+                                            <div class="expand-trigger">
+                                                <div style="width: 1049px; height: 41px;"></div>
+                                            </div>
+                                            <div class="contract-trigger"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-tabs__content">
+                                    <div role="tabpanel" id="pane-accountInfo" aria-labelledby="tab-accountInfo"
+                                         class="el-tab-pane">
+                                    </div>
+                                    <div role="tabpanel" aria-hidden="true" id="pane-accountSetting"
+                                         aria-labelledby="tab-accountSetting" class="el-tab-pane"
+                                         style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="account-body">
+                            <div data-v-240e9180="" class="control account-info">
+                                <div data-v-240e9180="" class="content">
+                                    <div data-v-240e9180="" class="title_box">
+                                        <p data-v-240e9180="">
+                                            <span data-v-240e9180="" class="accout_title">可修改信息</span>
+                                            <span data-v-240e9180="" class="tips txt_red">30天內只能修改一次</span>
+                                        </p>
+                                    </div>
+                                    <form data-v-240e9180="" class="el-form el-form--label-left">
+                                        <div data-v-240e9180="" class="el-form-item is-required">
+                                            <label for="nickname" class="el-form-item__label"
+                                                   style="width: 140px;">账号名称</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">
+                                                    <div data-v-240e9180="">{$nickname}</div>
+                                                    <div data-v-240e9180="" class="el-input" style="display: none;">
+                                                        <!---->
+                                                        <input autocomplete="off" id="nickname" type="text" rows="2"
+                                                               validateevent="true" class="el-input__inner">
+                                                        <!----><!----><!---->
+                                                    </div>
+                                                </div>
+                                                <div data-v-240e9180="" class="edit">
+                                                    <div data-v-240e9180="">
+                                                        <img data-v-240e9180=""
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQzMDVEQzYzQjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQzMDVEQzY0QjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDMwNURDNjFCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDMwNURDNjJCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Z/QWMAAAAolBMVEW3ub/Nz9LExsr6+vvKzND7+/y1t73w8fHR09XJy8/x8fKztrrP0dSxtLrGyMvm5+i3usC6vcHBw8f3+Pjl5ufHys24u7/n5+nCxMjd3uH4+fnX2dvFx8qytbvY2tzDxcnn6Oq0t7vq6+zIys62uL7O0NO+wMa9wMTv8PHT1NfW19rHyczc3eDy8vPMztH9/f3LzdD8/Pyvsrj+/v6/wcX///9mIiCPAAAAnUlEQVR42kzL1xaCMBAE0A0JoauAgr33Cln2/3/NRBCYpzn3zAB1ecZSpAQduJcXd62euEoyG2XaSnje+gdRBvO/nBLux3xVsOaFbGo7o7EdWWUtDWCh4SemOTBEttRgxMBVw3tgwIjYzWiTYzH4UC0OhBHXw0cNWm53ytRCTBogwKNP5MkWCHKV4B68Fgg8pYJq3QFBphRU/XwFGADWhCn9Y2cQZwAAAABJRU5ErkJggg==">
+                                                    </div>
+                                                    <span data-v-240e9180="" class="txt_red"
+                                                          style="display: none;">审核中</span>
+                                                    <button data-v-240e9180="" id="fixNickname" type="button"
+                                                            class="el-button submit-btn el-button--default"
+                                                            style="display: none;"><!----><!---->
+                                                        <span>提交</span>
+                                                    </button>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item is-required">
+                                            <label for="description" class="el-form-item__label" style="width: 140px;">账号介绍</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">
+                                                    <div data-v-240e9180="">{$account_introduce}</div>
+                                                    <div data-v-240e9180="" class="el-textarea" style="display: none;">
+                                                        <textarea id="AccountIntroduce" maxlength="30" type="textarea"
+                                                                  rows="2"
+                                                                  autocomplete="off" validateevent="true"
+                                                                  class="el-textarea__inner"
+                                                                  style="min-height: 33px;">
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                                <div data-v-240e9180="" class="edit">
+                                                    <div data-v-240e9180="">
+                                                        <img data-v-240e9180=""
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQzMDVEQzYzQjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQzMDVEQzY0QjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDMwNURDNjFCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDMwNURDNjJCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Z/QWMAAAAolBMVEW3ub/Nz9LExsr6+vvKzND7+/y1t73w8fHR09XJy8/x8fKztrrP0dSxtLrGyMvm5+i3usC6vcHBw8f3+Pjl5ufHys24u7/n5+nCxMjd3uH4+fnX2dvFx8qytbvY2tzDxcnn6Oq0t7vq6+zIys62uL7O0NO+wMa9wMTv8PHT1NfW19rHyczc3eDy8vPMztH9/f3LzdD8/Pyvsrj+/v6/wcX///9mIiCPAAAAnUlEQVR42kzL1xaCMBAE0A0JoauAgr33Cln2/3/NRBCYpzn3zAB1ecZSpAQduJcXd62euEoyG2XaSnje+gdRBvO/nBLux3xVsOaFbGo7o7EdWWUtDWCh4SemOTBEttRgxMBVw3tgwIjYzWiTYzH4UC0OhBHXw0cNWm53ytRCTBogwKNP5MkWCHKV4B68Fgg8pYJq3QFBphRU/XwFGADWhCn9Y2cQZwAAAABJRU5ErkJggg==">
+                                                    </div>
+                                                    <span data-v-240e9180="" class="txt_red"
+                                                          style="display: none;">审核中</span>
+                                                    <button data-v-240e9180="" type="button" id="fixAccountIntroduce"
+                                                            class="el-button submit-btn desc-submit el-button--default"
+                                                            style="display: none;"><!----><!---->
+                                                        <span>提交</span>
+                                                    </button>
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">账号头像</label>
+                                            <input type="hidden" name="updateAvatar" value="">
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">
+                                                    <!--<div tabindex="0" class="el-upload el-upload&#45;&#45;text"-->
+                                                         <!--style="position: relative; width: 178px; height: 178px;"-->
+                                                         <!--id="image1">-->
+
+                                                        <!--{if condition="($avatar=='')"}-->
+                                                        <!--<img id="avatar"-->
+                                                             <!--data-v-240e9180=""-->
+                                                             <!--src="__IMG__/default_avatar.jpg"-->
+                                                             <!--class="avatar">-->
+                                                        <!--{else/}-->
+                                                        <!--<img id="avatar"-->
+                                                             <!--data-v-240e9180=""-->
+                                                             <!--src="{$avatar}"-->
+                                                             <!--class="avatar">-->
+                                                        <!--{/if}-->
+
+                                                        <!--&lt;!&ndash;<input type="file" name="file" class="el-upload__input">&ndash;&gt;-->
+                                                    <!--</div>-->
+
+                                                    <div class="image-first">
+                                                        <!--第一张-->
+                                                        <div class="col-sm-4 col-xs-4 image-first-2 el-upload el-upload--text">
+                                                            <a href="javascript:void(0)" id="show_photo1" class="show_photo">
+                                                                <input type="hidden" value="" name="avatar_file_other[]">
+                                                                <input style="display: none" class="avatarInput" id="avatarInput1" name="avatar_file" value="0" type="file" data-size="1" data-msg="512kb" data-ratio="1">
+                                                                {if condition="($avatar=='')"}
+                                                                <img  id="avatar" onclick="$('input[id=avatarInput1]').click();" src="__IMG__/default_avatar.jpg" width="178" height="178" class="avatar">
+                                                                {else/}
+                                                                <img id="avatar" onclick="$('input[id=avatarInput1]').click();"
+                                                                     data-v-240e9180=""
+                                                                     src="{$avatar}" width="178" height="178"
+                                                                     class="avatar">
+                                                                {/if}
+
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div data-v-240e9180="" class="desc-text">头像图片为200x200，不超过5M<br
+                                                        data-v-240e9180="">
+                                                    要求清晰、健康、代表账号形象<br data-v-240e9180="">
+                                                    请勿使用二维码
+                                                </div>
+                                                <div data-v-240e9180="" class="edit showIcon">
+                                                    <span data-v-240e9180="" class="txt_red"
+                                                          style="display: none;">审核中</span>
+                                                    <!--<button data-v-240e9180="" type="button"-->
+                                                    <!--class="el-button submit-btn avatar-submit el-button&#45;&#45;default"-->
+                                                    <!--style="display:block;">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;-->
+                                                    <!--<span id="updateAvatar">提交</span>-->
+                                                    <!--</button>-->
+                                                </div><!----></div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">登录密码</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">安全保护中...</div>
+                                                <div data-v-240e9180="" class="edit">
+                                                    <div data-v-240e9180="">
+                                                        <img data-v-240e9180="" class="fixPwd"
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQzMDVEQzYzQjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQzMDVEQzY0QjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDMwNURDNjFCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDMwNURDNjJCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Z/QWMAAAAolBMVEW3ub/Nz9LExsr6+vvKzND7+/y1t73w8fHR09XJy8/x8fKztrrP0dSxtLrGyMvm5+i3usC6vcHBw8f3+Pjl5ufHys24u7/n5+nCxMjd3uH4+fnX2dvFx8qytbvY2tzDxcnn6Oq0t7vq6+zIys62uL7O0NO+wMa9wMTv8PHT1NfW19rHyczc3eDy8vPMztH9/f3LzdD8/Pyvsrj+/v6/wcX///9mIiCPAAAAnUlEQVR42kzL1xaCMBAE0A0JoauAgr33Cln2/3/NRBCYpzn3zAB1ecZSpAQduJcXd62euEoyG2XaSnje+gdRBvO/nBLux3xVsOaFbGo7o7EdWWUtDWCh4SemOTBEttRgxMBVw3tgwIjYzWiTYzH4UC0OhBHXw0cNWm53ytRCTBogwKNP5MkWCHKV4B68Fgg8pYJq3QFBphRU/XwFGADWhCn9Y2cQZwAAAABJRU5ErkJggg==">
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label for="operators_email" class="el-form-item__label"
+                                                   style="width: 140px;">联系邮箱</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">
+                                                    <div data-v-240e9180="">{$email}</div>
+                                                    <div data-v-240e9180="" class="el-input" style="display: none;">
+                                                        <!---->
+                                                        <input id="email" autocomplete="off" type="text" rows="2"
+                                                               validateevent="true" class="el-input__inner">
+                                                        <div class="el-form-item__error" style="display: none">
+                                                            请输入合法的邮箱
+                                                        </div>
+                                                        <!----><!----><!---->
+                                                    </div>
+                                                </div>
+                                                <div data-v-240e9180="" class="edit">
+                                                    <div data-v-240e9180="">
+                                                        <img data-v-240e9180=""
+                                                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAMAAADH72RtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQzMDVEQzYzQjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQzMDVEQzY0QjYwOTExRTZBQjY5QkI5RDU3M0JDQzM4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDMwNURDNjFCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDMwNURDNjJCNjA5MTFFNkFCNjlCQjlENTczQkNDMzgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4Z/QWMAAAAolBMVEW3ub/Nz9LExsr6+vvKzND7+/y1t73w8fHR09XJy8/x8fKztrrP0dSxtLrGyMvm5+i3usC6vcHBw8f3+Pjl5ufHys24u7/n5+nCxMjd3uH4+fnX2dvFx8qytbvY2tzDxcnn6Oq0t7vq6+zIys62uL7O0NO+wMa9wMTv8PHT1NfW19rHyczc3eDy8vPMztH9/f3LzdD8/Pyvsrj+/v6/wcX///9mIiCPAAAAnUlEQVR42kzL1xaCMBAE0A0JoauAgr33Cln2/3/NRBCYpzn3zAB1ecZSpAQduJcXd62euEoyG2XaSnje+gdRBvO/nBLux3xVsOaFbGo7o7EdWWUtDWCh4SemOTBEttRgxMBVw3tgwIjYzWiTYzH4UC0OhBHXw0cNWm53ytRCTBogwKNP5MkWCHKV4B68Fgg8pYJq3QFBphRU/XwFGADWhCn9Y2cQZwAAAABJRU5ErkJggg==">
+                                                    </div>
+                                                    <span data-v-240e9180="" class="txt_red"
+                                                          style="display: none;">审核中
+                                                    </span>
+                                                    <button id="fixEmail" data-v-240e9180="" type="button"
+                                                            class="el-button submit-btn el-button--default"
+                                                            style="display: none;"><!----><!---->
+                                                        <span>提交</span>
+                                                    </button>
+                                                </div><!---->
+
+                                            </div>
+                                        </div> <!----></form>
+                                    <hr data-v-240e9180="" style="margin: 40px 5% 40px 0px;">
+                                    <div data-v-240e9180="" class="title_box">
+                                        <p data-v-240e9180="">
+                                            <span data-v-240e9180="" class="accout_title">不可修改信息</span>
+                                        </p>
+                                    </div>
+                                    <form data-v-240e9180="" class="el-form el-form--label-left">
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">账号类型</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <!--默认先 个人-->
+                                                <div data-v-240e9180="">{$media_type}</div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">账号领域</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="">{$media_area}</div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">账号ID</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="">{$uid}</div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">绑定手机号</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="" class="content-text">
+                                                    <div data-v-240e9180="">{$mobile}</div>
+                                                    <div data-v-240e9180="" class="txt_red" style="display: none;">未绑定
+                                                    </div>
+                                                </div>
+                                                <div data-v-240e9180="" class="edit">
+                                                    <div data-v-240e9180="" class="bind_phone_btn"
+                                                         style="display: none;">立即绑定
+                                                    </div>
+                                                </div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">联系人</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="">{$real_name}*({$id_card})</div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">联系人电话</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="">{$mobile_}</div><!---->
+                                            </div>
+                                        </div>
+                                        <div data-v-240e9180="" class="el-form-item">
+                                            <label class="el-form-item__label" style="width: 140px;">所在地</label>
+                                            <div class="el-form-item__content" style="margin-left: 140px;">
+                                                <div data-v-240e9180="">{$area}</div><!---->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--密码弹出框-->
+                                <div data-v-240e9180="" class="el-dialog__wrapper password-dialog"
+                                     style="display: none; z-index: 2028;">
+                                    <div class="el-dialog" style="margin-top: 15vh;">
+                                        <div class="el-dialog__header"><span class="el-dialog__title">修改密码</span>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn"><i
+                                                    class="el-dialog__close el-icon el-icon-close"></i></button>
+                                        </div>
+                                        <div class="el-dialog__body">
+                                            <form data-v-240e9180="" class="el-form el-form--label-left" method="post">
+                                                <div data-v-240e9180="" class="el-form-item is-error is-required"><label
+                                                        for="old_password" class="el-form-item__label"
+                                                        style="width: 80px;">旧密码</label>
+                                                    <div class="el-form-item__content" style="margin-left: 80px;">
+                                                        <div data-v-240e9180="" class="el-input"><!---->
+                                                            <input id="oldpw" autocomplete="off" maxlength="20"
+                                                                   type="password"
+                                                                   rows="2" validateevent="true" class="el-input__inner"
+                                                                   style="border-color: #d8dce5">
+                                                            <div class="el-form-item__error" style="display: none;">
+                                                                请输入旧密码
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr data-v-240e9180="">
+                                                <div data-v-240e9180="" class="el-form-item is-error is-required"><label
+                                                        for="password" class="el-form-item__label" style="width: 80px;">新密码</label>
+                                                    <div class="el-form-item__content" style="margin-left: 80px;">
+                                                        <div data-v-240e9180="" class="el-input">
+                                                            <input id="newpw" autocomplete="off" maxlength="20"
+                                                                   type="password"
+                                                                   rows="2" validateevent="true" class="el-input__inner"
+                                                                   style="border-color: #d8dce5">
+                                                            <div class="el-form-item__error" style="display: none">
+                                                                请输入新密码
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-240e9180="" class="el-form-item is-error is-required"><label
+                                                        for="password2" class="el-form-item__label"
+                                                        style="width: 80px;">确认密码</label>
+                                                    <div class="el-form-item__content" style="margin-left: 80px;">
+                                                        <div data-v-240e9180="" class="el-input">
+                                                            <input id="newpw2" autocomplete="off" maxlength="20"
+                                                                   type="password"
+                                                                   rows="2" validateevent="true" class="el-input__inner"
+                                                                   style="border-color: #d8dce5">
+                                                            <div class="el-form-item__error" style="display: none">
+                                                                请确认密码
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="el-dialog__footer">
+                                            <div data-v-240e9180="" class="dialog-footer">
+                                                <button data-v-240e9180="" id="submitFixPwd" type="button"
+                                                        class="el-button el-button--primary"><!---->
+                                                    <!----><span>确 定</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-dialog__wrapper public-dialog" style="display: none;">
+                                    <div class="el-dialog" style="margin-top: 15vh;">
+                                        <div class="el-dialog__header">
+                                            <span class="el-dialog__title">微信公众号</span>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                <i class="el-dialog__close el-icon el-icon-close"></i>
+                                            </button>
+                                        </div><!---->
+                                        <div class="el-dialog__footer">
+                                            <div class="dialog-footer">
+                                                <button type="button"
+                                                        class="el-button el-button--primary"><!---->
+                                                    <!----><span>确 定</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-dialog__wrapper bindphone-dialog"
+                                     style="display: none;">
+                                    <div class="el-dialog" style="margin-top: 15vh;">
+                                        <div class="el-dialog__header">
+                                            <span class="el-dialog__title">绑定手机号</span>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                <i class="el-dialog__close el-icon el-icon-close"></i>
+                                            </button>
+                                        </div><!---->
+                                        <div class="el-dialog__footer">
+                                            <div class="dialog-footer">
+                                                <button type="button"
+                                                        class="el-button el-button--primary"><!---->
+                                                    <!----><span>确 定</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-dialog__wrapper imgcap-dialog" style="display: none;">
+                                    <div class="el-dialog" style="margin-top: 15vh;">
+                                        <div class="el-dialog__header">
+                                            <span class="el-dialog__title">请填写图片验证码</span>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                <i class="el-dialog__close el-icon el-icon-close"></i>
+                                            </button>
+                                        </div><!---->
+                                        <div class="el-dialog__footer">
+                                            <div class="dialog-footer">
+                                                <button type="button"
+                                                        class="el-button el-button--primary"><!---->
+                                                    <!----><span>提交</span>
+                                                </button>
+                                                <button type="button"
+                                                        class="el-button el-button--default"><!---->
+                                                    <!----><span>取消</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-dialog__wrapper dialog-img-cropper"
+                                     style="display: none;">
+                                    <div class="el-dialog" style="width: 620px; margin-top: 15vh;">
+                                        <div class="el-dialog__header">
+                                            <div class="dialog-title">
+                                                裁剪图片
+                                                <span>（请保证封面清晰、头像完整，有助于内容曝光）</span>
+                                            </div>
+                                            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                                <i class="el-dialog__close el-icon el-icon-close"></i>
+                                            </button>
+                                        </div><!---->
+                                        <div class="el-dialog__footer">
+                                            <div class="dialog-footer">
+                                                <button type="button" class="el-button el-button--default"><!---->
+                                                    <!----><span>取 消</span>
+                                                </button>
+                                                <button type="button" class="el-button el-button--primary"><!---->
+                                                    <!----><span>确 定</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <span id="cnzz_stat_icon_1264696607">
+        <a href="http://www.cnzz.com/stat/website.php?web_id=1264696607" target="_blank" title="站长统计">站长统计</a>
+    </span>
+</div>
+
+<div class="el-dialog__wrapper punch-the-clock-dialog" style="z-index: 2006; display: none;">
+    <div class="el-dialog" style="width: 1000px; margin-top: 15vh;">
+        <div class="el-dialog__header">
+            <span class="el-dialog__title"></span>
+            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                <i class="el-dialog__close el-icon el-icon-close"></i>
+            </button>
+        </div>
+        <div class="el-dialog__body">
+            <div class="clock-content-box">
+                <div class="clock-header">
+                    <div class="active-tip">活动共计7天，发布内容且满足当天过审篇数，即可自动完成当日打卡</div>
+                    <div class="active-rule">活动详细规则</div>
+                    <div class="time-tip-box">
+                        <span class="time-tip">活动周期：2018.3.14-2018.3.20</span>
+                        <span class="time-tip">抽取红包：2018.3.23-2018.3.25</span>
+                        <span class="time-tip reward-send">奖金发放：2018年3月27号发放到账户余额</span>
+                    </div>
+                </div>
+                <div class="clock-box">
+                    <div class="clock-item even right notClock">
+                        <div class="clock-status-box">
+                            <div class="clock-day">1天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">2天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">3天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">4天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">5天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">6天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even reward none">
+                        <div class="clock-status-box">
+                            <div class="clock-day" style="display: none;">10W</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!----></div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!----></div>
+</div>
+
+<div id="edui_fixedlayer" class="edui-simple" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px;">
+    <div id="edui36" class="edui-popup  edui-bubble edui-simple" onmousedown="return false;" style="display: none;">
+        <div id="edui36_body" class="edui-popup-body edui-simple">
+            <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0"
+                    width="100%" height="100%" src="about:blank" class="edui-simple"></iframe>
+            <div class="edui-shadow edui-simple"></div>
+            <div id="edui36_content" class="edui-popup-content edui-simple"></div>
+        </div>
+    </div>
+    <div id="edui1" class="edui-editor  edui-simple">
+        <div id="edui1_toolbarbox" class="edui-editor-toolbarbox edui-simple">
+            <div id="edui1_toolbarboxouter" class="edui-editor-toolbarboxouter edui-simple">
+                <div class="edui-editor-toolbarboxinner edui-simple">
+                    <div id="edui2" class="edui-toolbar   edui-simple" onselectstart="return false; style=" user-select:
+                         none;
+                    ">
+                    <div id="edui3" class="edui-box edui-button edui-for-bold edui-simple">
+                        <div id="edui3_state"
+                             class="edui-simple">
+                            <div class="edui-button-wrap edui-simple">
+                                <div id="edui3_body" unselectable="on" title="加粗"
+                                     class="edui-button-body edui-simple"
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui4" class="edui-box edui-button edui-for-blockquote edui-simple">
+                    <div id="edui4_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui4_body" unselectable="on" title="引用"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui5" class="edui-box edui-menubutton edui-for-insertunorderedlist edui-simple">
+                    <div title="无序列表" id="edui5_state" class="edui-simple">
+                        <div class="edui-menubutton-body edui-simple">
+                            <div id="edui5_button_body" class="edui-box edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                            <div class="edui-box edui-splitborder edui-simple"></div>
+                            <div class="edui-box edui-arrow edui-simple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui12" class="edui-box edui-menubutton edui-for-insertorderedlist edui-simple">
+                    <div title="有序列表" id="edui12_state" class="edui-simple">
+                        <div class="edui-menubutton-body edui-simple">
+                            <div id="edui12_button_body" class="edui-box edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                            <div class="edui-box edui-splitborder edui-simple"></div>
+                            <div class="edui-box edui-arrow edui-simple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui25" class="edui-box edui-button edui-for-horizontal edui-simple">
+                    <div id="edui25_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui25_body" unselectable="on" title="分隔线"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui26" class="edui-box edui-separator  edui-simple"></div>
+                <div id="edui33" class="edui-box edui-button edui-for-insertimage edui-simple">
+                    <div id="edui33_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui33_body" unselectable="on" title="多图上传"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                                <div class="edui-box edui-label edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui34" class="edui-box edui-separator  edui-simple"></div>
+                <div id="edui35" class="edui-box edui-button edui-for-removeformat edui-simple">
+                    <div id="edui35_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui35_body" unselectable="on" title="清除格式"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="edui1_toolbarmsg" class="edui-editor-toolbarmsg edui-simple" style="display:none;">
+        <div id="edui1_upload_dialog" class="edui-editor-toolbarmsg-upload edui-simple">点击上传
+        </div>
+        <div class="edui-editor-toolbarmsg-close edui-simple"
+    </div>
+    <div id="edui1_toolbarmsg_label" class="edui-editor-toolbarmsg-label edui-simple"></div>
+    <div style="height:0;overflow:hidden;clear:both;" class="edui-simple"></div>
+</div>
+<div id="edui1_message_holder" class="edui-editor-messageholder edui-simple"></div>
+</div>
+<div id="edui1_iframeholder" class="edui-editor-iframeholder edui-simple"></div>
+<div id="edui1_bottombar" class="edui-editor-bottomContainer edui-simple">
+    <table class="edui-simple">
+        <tbody class="edui-simple">
+        <tr class="edui-simple">
+            <td id="edui1_elementpath" class="edui-editor-bottombar edui-simple"></td>
+            <td id="edui1_wordcount" class="edui-editor-wordcount edui-simple"></td>
+            <td id="edui1_scale" class="edui-editor-scale edui-simple">
+                <div class="edui-editor-icon edui-simple"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="edui1_scalelayer" class="edui-simple"></div>
+</div>
+</div>
+<div tabindex="-1" role="dialog" aria-modal="true" aria-label="趣头条自媒体发文规范" class="el-message-box__wrapper"
+     style="z-index: 2009; display: none;">
+    <div class="el-message-box dialog-publish-confirm el-message-box--center">
+        <div class="el-message-box__header">
+            <div class="el-message-box__title"><!----><span>趣头条自媒体发文规范</span></div>
+            <button type="button" aria-label="Close" class="el-message-box__headerbtn"><i
+                    class="el-message-box__close el-icon-close"></i></button>
+        </div>
+        <div class="el-message-box__content"><!---->
+            <div class="el-message-box__message"><p>亲爱的趣头条自媒体作者，为了提高文章的审核通过率和推荐效果，友情提示您在发文前仔细阅读《<a
+                    href="/link/pub-Specs" class="btn-link" target="_blank">趣头条自媒体发文规范</a>》</p></div>
+            <div class="el-message-box__input" style="display: none;">
+                <div class="el-input"><!----><input autocomplete="off" placeholder="" type="text" rows="2"
+                                                    validateevent="true" class="el-input__inner"><!----><!----><!---->
+                </div>
+                <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+            </div>
+        </div>
+        <div class="el-message-box__btns">
+            <button type="button" class="el-button el-button--default el-button--small" style="display: none;"><!---->
+                <!----><span>
+              取消
+            </span></button>
+            <button type="button" class="el-button el-button--default el-button--small el-button--primary "><!---->
+                <!----><span>
+              我知道了
+            </span></button>
+        </div>
+    </div>
+</div>
+<div class="el-loading-mask" style="top: 320px; left: 275px; height: 0px; width: 1088px; display: none;">
+    <div class="el-loading-spinner">
+        <svg viewBox="25 25 50 50" class="circular">
+            <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+        </svg><!----></div>
+</div>
+<div role="tooltip" id="el-tooltip-2671" aria-hidden="true" class="el-tooltip__popper is-dark"
+     style="transform-origin: left center 0px; z-index: 2011; display: none;">由当前帐号发文的活跃度、专业度、健康度、原创度、互动度综合评估出的指数。
+    <div x-arrow="" class="popper__arrow" style="top: 25px;"></div>
+</div>
+<div class="v-modal" tabindex="0" style="z-index: 2000;display: none;"></div>
+</body>
+</html>
+<script type="text/javascript" src="/static/home/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/home/js/index.js"></script>
+<!--<script type="text/javascript" src="layui-v2.2.5/layui/layui.js"></script>-->
+<script src="/static/plugins/layui/layui.js"></script>
+<!--裁剪头像-->
+<script src="/static/home/js/base/layer/2.4/layer.js" type="text/jscript"></script>
+<script src="/static/home/js/base/cropper/2.3.2/cropper.js" type="text/jscript"></script>
+<script src="/static/home/js/base/cropper/2.3.2/main.js" type="text/jscript"></script>
+<!-- 弹框 -->
+<!--<script src="/static/home/js/plugins/layer/layer.min.js"></script>-->
+<script>
+    $(function () {
+
+
+        $(".edit img").click(function () {
+            $(this).parents(".edit").find("button").show();
+            $(this).hide();
+            var zhi = $(this).parents(".edit").prev().find("div").eq(0).text().trim();
+            $(this).parents(".edit").prev().find("div").eq(0).hide();
+            $(this).parents(".edit").prev(".content-text").find(".el-input,.el-textarea").show();
+            $(this).parents(".edit").prev().find("input,textarea").val(zhi);
+        })
+
+        /*********************修改账号昵称 ************************************/
+
+//        var tiemer = "";
+//        var time = 30 * 24 * 60 * 60 * 1000;//每次点击30天后能再次点击
+//        var fun = function bClick() {
+////        alert("执行方法");
+//            $("button").unbind("click");
+//            tiemer = setTimeout(function () {
+//                $("button").click(fun);
+//            }, time);
+//        };
+//        $("button").click(fun);
+
+        //修改账号昵称
+        $("#fixNickname").click(function () {
+            //修改账号昵称
+            var nickname = $("#nickname").val();
+            $.ajax({
+                url: "{:url('accountinfo/fixNickname')}",
+                type: 'POST',
+                async: false,//是否异步请求
+                data: {
+                    nickname: nickname,
+                    click_type: 'fixNickname',
+                },
+                success: function (result) {
+                    if (result.code == 200) {
+//                    var url ="{:url('index/login')}";
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+//                    window.location.href = url;
+                    } else {
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+                        //手机不合法
+                    }
+                }
+            });
+        });
+        /*********************修改账号昵称 end************************************/
+
+        /*********************修改账号介绍 ************************************/
+        //修改账号介绍
+        $("#fixAccountIntroduce").click(function () {
+            //修改账号介绍
+            var AccountIntroduce = $("#AccountIntroduce").val();
+            $.ajax({
+                url: "{:url('accountinfo/fixAccountIntroduce')}",
+                type: 'POST',
+                async: false,//是否异步请求
+                data: {
+                    AccountIntroduce: AccountIntroduce,
+                    click_type: 'fixAccountIntroduce',
+                },
+                success: function (result) {
+                    console.log(result);
+                    if (result.code == 200) {
+//                    var url ="{:url('index/login')}";
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+//                    window.location.href = url;
+                    } else {
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+                        //账号介绍 不合法
+                    }
+                }
+            });
+        });
+        /*********************修改账号介绍 end************************************/
+
+
+        /*********************修改旧密码 ************************************/
+        $(".fixPwd").click(function () {
+            //弹出密码框
+            $(".v-modal,.password-dialog").show();
+        })
+
+//        $(".password-dialog").click(function (e) {
+//            var target = $(e.target);
+//            if(target.is('.password-dialog') || target.is('.el-dialog__headerbtn') || target.is('.el-button--primary')) {
+//                $(this).hide();
+//                $(".v-modal").hide();
+//                $(".fixPwd").show();
+//            }
+//        })
+        $(".password-dialog").click(function (e) {
+            var target = $(e.target);
+            if (target.is('.password-dialog') || target.is('.el-dialog__headerbtn') || target.is('.el-dialog__close') || target.is('.el-button--primary')) {
+                $(this).hide();
+                $(".v-modal").hide();
+                $(".fixPwd").show();
+            }
+        })
+
+        //提交修改密码 确认按钮
+        $("#submitFixPwd").click(function () {
+            //弹出密码框
+            //修改账号介绍
+            var oldpw = $("#oldpw").val();
+            var newpw = $("#newpw").val();
+            var newpw2 = $("#newpw2").val();
+            $.ajax({
+                url: "{:url('accountinfo/submitFixPwd')}",
+                type: 'POST',
+                async: false,//是否异步请求
+                data: {
+                    oldpw: oldpw,
+                    newpw: newpw,
+                    newpw2: newpw2,
+                    click_type: 'submitFixPwd',
+                },
+                success: function (result) {
+                    if (result.code == 200) {
+//                    var url ="{:url('index/login')}";
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+                        $(".v-modal,.password-dialog").hide();
+//                    window.location.href = url;
+                    } else {
+                        layer.msg(result.msg, {icon: 1, time: 1500, shade: 0.1,});
+                        //账号介绍 不合法
+                    }
+                }
+            });
+        })
+
+
+        $("input,textarea").blur(function () {
+            var zhi = $(this).val();
+            var id = $(this).attr("id");
+            var result = true;
+            switch (id) {
+                case 'oldpw':
+                    result = checkOldpw($(this), zhi)
+                    break;
+                case 'newpw':
+                    result = checkNewpw($(this), zhi)
+                    break;
+                case 'newpw2':
+                    result = checkNewpw2($(this), zhi)
+                    break;
+                case 'email':
+                    result = checkMailbox($(this), zhi)
+                    break;
+            }
+            return result;
+        })
+
+        $(".password-dialog .el-button--primary").click(function () {
+            var result = yanzheng();
+            if (!result) {
+                return false;
+            }
+            $.ajax(function () {
+
+            })
+        })
+
+        function yanzheng() {
+            var result = true;
+            $("input").each(function (i) {
+                var obj = $("input").eq(i);
+                var value = obj.val();
+                var id = obj.attr("id");
+                switch (id) {
+                    case 'oldpw':
+                        !checkOldpw(obj, value) ? result = false : '';
+                        break;
+                    case 'newpw':
+                        !checkNewpw(obj, value) ? result = false : '';
+                        break;
+                    case 'newpw2':
+                        !checkNewpw2(obj, value) ? result = false : '';
+                        break;
+                    case 'email':
+                        !checkMailbox(obj, value) ? result = false : '';
+                        break;
+
+                }
+            })
+            return result;
+        }
+
+        //负责检查邮箱
+
+        function checkMailbox(objet, mailbox) {
+            if (/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})$/.test(mailbox)) {
+                objet.parent().find(".el-form-item__error").slideUp();
+                objet.css("border-color", "#d8dce5");
+                return true;
+            } else {
+                objet.css("border-color", "#fa5555");
+                objet.parent().find(".el-form-item__error").slideDown('fast');
+                return false;
+            }
+        }
+
+        //负责检查旧密码
+        function checkOldpw(objet, oldpw) {
+            if (/^[\da-zA-Z]{6,20}$/.test(oldpw)) {
+                objet.parent().find(".el-form-item__error").hide();
+                objet.css("border-color", "#d8dce5");
+                return true;
+            } else {
+                objet.css("border-color", "#fa5555");
+                if (oldpw != '') {
+                    objet.parent().find(".el-form-item__error").html("请输入正确密码");
+                } else {
+                    objet.parent().find(".el-form-item__error").html("请输入旧密码");
+                }
+                objet.parent().find(".el-form-item__error").show();
+                return false;
+            }
+        }
+
+        //负责检查新密码
+        function checkNewpw(objet, newpw) {
+            if (/^[\da-zA-Z]{6,20}$/.test(newpw)) {
+                objet.parent().find(".el-form-item__error").hide();
+                objet.css("border-color", "#d8dce5");
+                return true;
+            } else {
+                objet.css("border-color", "#fa5555");
+                if (newpw != '') {
+                    objet.parent().find(".el-form-item__error").html("密码长度在6位以上");
+                } else {
+                    objet.parent().find(".el-form-item__error").html("请输入新密码");
+                }
+                objet.parent().find(".el-form-item__error").show();
+                return false;
+            }
+        }
+
+        //确认密码
+        function checkNewpw2(objet, newpw2) {
+            if ($("#newpw2").val() === $("#newpw").val() && $("#newpw2").val() != "") {
+                objet.parent().find(".el-form-item__error").hide();
+                objet.css("border-color", "#d8dce5");
+                return true;
+            } else {
+                objet.css("border-color", "#fa5555");
+                if (newpw2 != '') {
+                    objet.parent().find(".el-form-item__error").html("两次密码不一致");
+                } else {
+                    objet.parent().find(".el-form-item__error").html("请确认密码");
+                }
+                objet.parent().find(".el-form-item__error").show();
+                return false;
+            }
+        }
+
+//关闭 密码框
+//      $(".el-dialog__headerbtn").click(function () {
+//          $(".v-modal,.password-dialog").hide();
+//
+//      })
+        /*********************修改旧密码 end************************************/
+
+        /*********************修改邮箱 ************************************/
+        //修改邮箱
+        $("#fixEmail").click(function () {
+            //修改邮箱
+            var fixEmail = $("#email").val();
+            $.ajax({
+                url: "{:url('accountinfo/fixEmail')}",
+                type: 'POST',
+                async: false,//是否异步请求
+                data: {
+                    fixEmail: fixEmail,
+                    click_type: 'fixEmail',
+                },
+                success: function (result) {
+                    if (result.code == 200) {
+                        layer.msg(result.msg, {
+                            icon: 1,
+                            time: 1500,
+                            shade: 0.1,
+                        });
+//                    var url ="{:url('index/login')}";
+//                    window.location.href = url;
+                    } else {
+                        layer.msg(result.msg, {
+                            icon: 1,
+                            time: 1500,
+                            shade: 0.1,
+                        });
+                        //账号介绍 不合法
+                    }
+                }
+            });
+        });
+
+
+        /*********************修改邮箱 end************************************/
+
+
+        /******************账号头像 ****************/
+        layui.use('upload', function () {
+            var upload1 = layui.upload
+            jq = layui.jquery;
+            upload1.render({
+                url: 'http://tpic2.eastlady.cn/info/upload.php'
+                , elem: '#image1'
+                , data: '{type:1,click_type:"fixAvatar"}' //类型为 前台home传的
+                , ext: 'jpg|png|gif'
+                , auto: true //选择文件后自动上传
+//                , bindAction: '#updateAvatar' //指向一个按钮触发上传
+                , area: ['500', '500px']
+                , before: function (input) {
+                    loading = layer.load(2, {
+                        shade: [0.2, '#000']
+                    });
+                }
+                , done: function (res) {
+                    console.log(res);
+                    layer.close(loading);
+                    avatar.src = res.url;
+                    layer.msg(res.msg, {icon: 1, time: 1000});
+                    saveUrl(res.url);
+                }
+            });
+            //
+        });
+        //保存图片到 数据库
+        function saveUrl(url) {
+            $.ajax({
+                url: "{:url('accountinfo/saveUrl')}",
+                type: 'POST',
+                async: false,//是否异步请求
+                data: {
+                    url: url,
+                },
+                success: function (result) {
+                    console.log(result);
+                    if (result.code == 1) {
+//                        layer.msg(result.msg, {
+//                            icon: 1,
+//                            time: 1500,
+//                            shade: 0.1,
+//                        });
+//                    var url ="{:url('index/login')}";
+//                    window.location.href = url;
+                    } else {
+                        layer.msg(result.msg, {
+                            icon: 1,
+                            time: 1500,
+                            shade: 0.1,
+                        });
+                        //账号介绍 不合法
+                    }
+                }
+            });
+        }
+        /******************账号头像 end****************/
+
+        layui.use('upload', function () {
+            var upload = layui.upload,
+                    jq = layui.jquery;
+
+        })
+
+    })
+
+</script>

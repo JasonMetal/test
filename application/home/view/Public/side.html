@@ -1,0 +1,112 @@
+<div class="menu-box">
+    <div class="menu-sub">
+        <a href="{:url('Account/index')}">
+            <div class="subtxt {php}if(request()->controller() == 'Account'){echo 'active';}{/php}">
+                <span class="menu-icon firstPage icon-3">
+                    <img src="__IMG__/a1.png">
+                </span>
+
+                <span class="menu-txt">首页</span>
+            </div>
+            <div class="menu-sub"></div>
+        </a>
+    </div>
+    <div class="menu-sub">
+        <a href="{:url('Release/index')}">
+            <div class="subtxt {php}if(request()->controller() == 'Release'){echo 'active';}{/php}">
+                <span class="menu-icon firstPage icon-4">
+                    <img src="__IMG__/a2.png">
+                </span>
+                <span class="menu-txt">发布内容</span>
+            </div>
+            <div class="menu-sub"></div>
+        </a>
+    </div>
+    <div class="menu-sub">
+        <div class="subtxt">
+            <span class="menu-icon firstPage icon-5">
+                <img src="__IMG__/a3.png">
+            </span>
+            <span class="menu-txt light">管理</span>
+        </div>
+        <a href="{:url('Content/index')}">
+            <div class="menu-sub">
+                <div class="subtxt {php}if(request()->controller() == 'Content'){echo 'active';}{/php}">
+                    <span class="menu-txt">内容管理</span>
+                </div>
+            </div>
+        </a>
+    </div>
+<!--     <div class="menu-sub">
+        <div class="subtxt">
+            <span class="menu-icon firstPage icon-6">
+                <img src="__IMG__/a4.png">
+            </span>
+            <span class="menu-txt light">数据</span>
+        </div>
+        <div class="menu-sub">
+            <div class="subtxt">
+                <span class="menu-txt">数据分析</span>
+            </div>
+        </div>
+    </div> -->
+   <!--  <div class="menu-sub">
+        <div class="subtxt">
+            <span class="menu-icon firstPage icon-7">
+                <img src="__IMG__/a5.png">
+            </span>
+            <span class="menu-txt light">收益</span>
+        </div>
+        <div class="menu-sub">
+            <div class="subtxt"><span class="menu-txt">收益明细</span></div>
+            <div class="subtxt"><span class="menu-txt">提现记录</span></div>
+        </div>
+    </div> -->
+    <div class="menu-sub">
+        <div class="subtxt">
+            <span class="menu-icon firstPage icon-8">
+                <img src="__IMG__/a6.png">
+            </span>
+            <span class="menu-txt light">帐号</span>
+        </div>
+
+        <div class="menu-sub">
+            <!--<a href="{:url('AccountInfo/account_status')}">-->
+                <!--<div class="subtxt">-->
+                    <!--<span class="menu-txt">帐号状态</span>-->
+                <!--</div>-->
+            <!--</a>-->
+            <a href="{:url('Accountinfo/account_info')}">
+                <div class="subtxt {php}if(request()->controller() == 'Accountinfo'){echo 'active';}{/php}">
+                    <span class="menu-txt">帐号信息</span>
+                </div>
+            </a>
+            <!-- <div class="subtxt"><span class="menu-txt">财务信息</span></div> -->
+        </div>
+    </div>
+    <div class="menu-sub">
+        <div class="subtxt">
+            <span class="menu-icon firstPage icon-9">
+                <img src="__IMG__/a7.png">
+            </span>
+            <span class="menu-txt light">客服中心</span>
+        </div>
+        <div class="menu-sub">
+            <a href="{:url('Infringement/index')}">
+                <div class="subtxt {php}if(request()->controller() == 'Infringement'){echo 'active';}{/php}">
+                    <span class="menu-txt">侵权投诉</span>
+                </div>
+            </a>
+            <a href="{:url('Opinion/index')}">
+                <div class="subtxt {php}if(request()->controller() == 'Opinion'){echo 'active';}{/php}">
+                    <span class="menu-txt">意见反馈</span>
+                </div>
+            </a>
+            <a href="{:url('Problem/index')}">
+                <div class="subtxt {php}if(request()->controller() == 'Problem'){echo 'active';}{/php}">
+                    <span class="menu-txt">常见问题</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

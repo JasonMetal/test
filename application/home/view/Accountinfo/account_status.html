@@ -1,0 +1,628 @@
+{include file="Public/top"/}
+<link href="__CSS__/scrouse.css" rel="stylesheet">
+<link href="__CSS__/iconfont.css" rel="stylesheet">
+<style type="text/css">
+.el-pagination a{
+    color: #00b593;
+}
+.screen li > a >img {
+    width: 100%;
+    height: 117px;
+}
+</style>
+<body class="">
+<div id="app">
+    <div class="nprogress-container"></div>
+    <div class="container-box el-row">
+        {include file="Public/header"/}
+        <div class="el-col el-col-24">
+            <div class="main-box">
+                {include file="Public/side"/}
+                <!--内容页面-->
+                <div class="content-box">
+                    <div class="control account-status">
+                        <div class="header-title">账号状态</div>
+                        <div class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition"
+                             element-loading-text="拼命加载中" style="width: 100%;">
+                            <div class="hidden-columns">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="el-table__header-wrapper">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__header"
+                                       style="width: 1046px;">
+                                    <colgroup>
+                                        <col name="el-table_1_column_19" width="140">
+                                        <col name="el-table_1_column_20" width="140">
+                                        <col name="el-table_1_column_21" width="766">
+                                        <col name="gutter" width="">
+                                    </colgroup>
+                                    <thead class="has-gutter">
+                                    <tr class="">
+                                        <th colspan="1" rowspan="1" class="el-table_1_column_19 is-leaf">
+                                            <div class="cell">功能</div>
+                                        </th>
+                                        <th colspan="1" rowspan="1" class="el-table_1_column_20 is-leaf">
+                                            <div class="cell">当前状态</div>
+                                        </th>
+                                        <th colspan="1" rowspan="1" class="el-table_1_column_21  is-leaf">
+                                            <div class="cell">说明</div>
+                                        </th>
+                                        <th class="gutter" style="width: 0px;"></th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="el-table__body-wrapper is-scroll-left">
+                                <table cellspacing="0" cellpadding="0" border="0" class="el-table__body"
+                                       style="min-width: 1000px">
+                                    <colgroup>
+                                        <col name="el-table_1_column_19" width="140">
+                                        <col name="el-table_1_column_20" width="140">
+                                        <col name="el-table_1_column_21" width="766">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_1_column_19  ">
+                                            <div class="cell">帐号状态</div>
+                                        </td>
+                                        <td class="el-table_1_column_20  ">
+                                            <div class="cell">
+                                                <div>LV3</div>
+                                                <button type="primary" size="small" class="" style="display: none;">
+                                                    LV3
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_1_column_21  ">
+                                            <div class="cell">
+                                                <div class="desc-text">当前账号为LV3，账号可发文200篇 视频50条
+                                                    <span class="detail-link"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_1_column_19  ">
+                                            <div class="cell">帐号分值</div>
+                                        </td>
+                                        <td class="el-table_1_column_20  ">
+                                            <div class="cell">
+                                                <div>100</div>
+                                                <button type="primary" size="small" class="" style="display: none;">
+                                                    100
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_1_column_21  ">
+                                            <div class="cell">
+                                                <div class="desc-text">违禁行为会触发扣分和惩罚。
+                                                    <span class="detail-link">
+                                                        <a href="/link/NoticeDetails?id=8" target="_blank" class="link">了解详情</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_1_column_19  ">
+                                            <div class="cell">广告分成</div>
+                                        </td>
+                                        <td class="el-table_1_column_20  ">
+                                            <div class="cell">
+                                                <div style="display: none;">已开通</div>
+                                                <button type="primary" size="small" class="apply_btn apply_btn_gray">
+                                                    已开通
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_1_column_21  ">
+                                            <div class="cell">
+                                                <div class="desc-text">趣头条自媒体所有入驻用户均开通广告分成，根据用户账号级别广告分成有所不同。
+                                                    <span class="detail-link">
+                                                        <a href="/link/NoticeDetails?id=5" target="_blank" class="link">了解详情</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_1_column_19  ">
+                                            <div class="cell">原创标签</div>
+                                        </td>
+                                        <td class="el-table_1_column_20  ">
+                                            <div class="cell">
+                                                <div style="display: none;">申请</div>
+                                                <button type="primary" size="small" class="apply_btn apply_btn_gray">
+                                                    申请
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_1_column_21  ">
+                                            <div class="cell">
+                                                <div class="desc-text">您的账号还不可以申请原创标签
+                                                    <span class="detail-link">
+                                                        <a href="/link/NoticeDetails?id=76" target="_blank" class="link">了解详情</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="el-table__row">
+                                        <td class="el-table_1_column_19  ">
+                                            <div class="cell">绑定微信公众号</div>
+                                        </td>
+                                        <td class="el-table_1_column_20  ">
+                                            <div class="cell">
+                                                <div style="display: none;">申请</div>
+                                                <button type="primary" size="small" class="apply_btn apply_btn_green">
+                                                    申请
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="el-table_1_column_21  ">
+                                            <div class="cell">
+                                                <div class="desc-text">您的账号可以申请绑定微信公众号了，绑定成功后将会展示在文章底部。
+                                                    <span class="detail-link"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr><!----></tbody>
+                                </table><!----><!----></div><!----><!----><!----><!---->
+                            <div class="el-table__column-resize-proxy" style="display: none;"></div>
+                            <div class="resize-triggers">
+                                <div class="expand-trigger">
+                                    <div style="width: 1047px; height: 312px;"></div>
+                                </div>
+                                <div class="contract-trigger"></div>
+                            </div>
+                            <div class="el-loading-mask" style="display: none;">
+                                <div class="el-loading-spinner">
+                                    <svg viewBox="25 25 50 50" class="circular">
+                                        <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                                    </svg>
+                                    <p class="el-loading-text">拼命加载中</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="el-dialog__wrapper" style="display: none;">
+                            <div class="el-dialog" style="margin-top: 15vh;">
+                                <div class="el-dialog__header">
+                                    <span class="el-dialog__title">绑定微信公众号</span>
+                                    <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                                        <i class="el-dialog__close el-icon el-icon-close"></i>
+                                    </button>
+                                </div><!---->
+                                <div class="el-dialog__footer">
+                                    <div class="dialog-footer">
+                                        <button type="button" class="el-button el-button--primary"><!----><!----><span>提交审核</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none;">
+    <span id="cnzz_stat_icon_1264696607">
+        <a href="http://www.cnzz.com/stat/website.php?web_id=1264696607" target="_blank" title="站长统计">站长统计</a>
+    </span>
+</div>
+
+<div class="el-dialog__wrapper punch-the-clock-dialog" style="z-index: 2006; display: none;">
+    <div class="el-dialog" style="width: 1000px; margin-top: 15vh;">
+        <div class="el-dialog__header">
+            <span class="el-dialog__title"></span>
+            <button type="button" aria-label="Close" class="el-dialog__headerbtn">
+                <i class="el-dialog__close el-icon el-icon-close"></i>
+            </button>
+        </div>
+        <div class="el-dialog__body">
+            <div class="clock-content-box">
+                <div class="clock-header">
+                    <div class="active-tip">活动共计7天，发布内容且满足当天过审篇数，即可自动完成当日打卡</div>
+                    <div class="active-rule">活动详细规则</div>
+                    <div class="time-tip-box">
+                        <span class="time-tip">活动周期：2018.3.14-2018.3.20</span>
+                        <span class="time-tip">抽取红包：2018.3.23-2018.3.25</span>
+                        <span class="time-tip reward-send">奖金发放：2018年3月27号发放到账户余额</span>
+                    </div>
+                </div>
+                <div class="clock-box">
+                    <div class="clock-item even right notClock">
+                        <div class="clock-status-box">
+                            <div class="clock-day">1天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">2天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">3天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">4天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">5天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even right none">
+                        <div class="clock-status-box">
+                            <div class="clock-day">6天</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!---->
+                            </div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                    <div class="clock-item even reward none">
+                        <div class="clock-status-box">
+                            <div class="clock-day" style="display: none;">10W</div>
+                            <div class="no-clock-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-btn">我要打卡</div> <!----></div>
+                            <div class="clock-ready-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                                <div class="clock-content-tip">过审undefined篇</div>
+                                <div class="publish-btn">去发文</div>
+                            </div>
+                            <div class="clock-finish-box">
+                                <div class="user-logo">
+                                    <img
+                                            src="http://static.1sapp.com/qupost/avatar/2018/01/09/9b755df9428c726bcd358d2ebfd044c8.jpg?imageView2/1/h/240/w/240/q/90"
+                                            class="user-logo-image">
+                                </div>
+                            </div>
+                            <div class="finish-mark"></div>
+                            <div class="arrow-horizontal"></div>
+                            <div class="arrow-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!----></div>
+</div>
+
+<div id="edui_fixedlayer" class="edui-simple" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px;">
+    <div id="edui36" class="edui-popup  edui-bubble edui-simple" onmousedown="return false;" style="display: none;">
+        <div id="edui36_body" class="edui-popup-body edui-simple">
+            <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0"
+                    width="100%" height="100%" src="about:blank" class="edui-simple"></iframe>
+            <div class="edui-shadow edui-simple"></div>
+            <div id="edui36_content" class="edui-popup-content edui-simple"></div>
+        </div>
+    </div>
+    <div id="edui1" class="edui-editor  edui-simple">
+        <div id="edui1_toolbarbox" class="edui-editor-toolbarbox edui-simple">
+            <div id="edui1_toolbarboxouter" class="edui-editor-toolbarboxouter edui-simple">
+                <div class="edui-editor-toolbarboxinner edui-simple">
+                    <div id="edui2" class="edui-toolbar   edui-simple" onselectstart="return false; style="user-select: none;">
+                    <div id="edui3" class="edui-box edui-button edui-for-bold edui-simple">
+                        <div id="edui3_state"
+                             class="edui-simple">
+                            <div class="edui-button-wrap edui-simple">
+                                <div id="edui3_body" unselectable="on" title="加粗"
+                                     class="edui-button-body edui-simple"
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui4" class="edui-box edui-button edui-for-blockquote edui-simple">
+                    <div id="edui4_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui4_body" unselectable="on" title="引用"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui5" class="edui-box edui-menubutton edui-for-insertunorderedlist edui-simple">
+                    <div title="无序列表" id="edui5_state" class="edui-simple">
+                        <div class="edui-menubutton-body edui-simple">
+                            <div id="edui5_button_body" class="edui-box edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                            <div class="edui-box edui-splitborder edui-simple"></div>
+                            <div class="edui-box edui-arrow edui-simple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui12" class="edui-box edui-menubutton edui-for-insertorderedlist edui-simple">
+                    <div title="有序列表" id="edui12_state" class="edui-simple">
+                        <div class="edui-menubutton-body edui-simple">
+                            <div id="edui12_button_body" class="edui-box edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                            <div class="edui-box edui-splitborder edui-simple"></div>
+                            <div class="edui-box edui-arrow edui-simple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui25" class="edui-box edui-button edui-for-horizontal edui-simple">
+                    <div id="edui25_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui25_body" unselectable="on" title="分隔线"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui26" class="edui-box edui-separator  edui-simple"></div>
+                <div id="edui33" class="edui-box edui-button edui-for-insertimage edui-simple">
+                    <div id="edui33_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui33_body" unselectable="on" title="多图上传"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                                <div class="edui-box edui-label edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="edui34" class="edui-box edui-separator  edui-simple"></div>
+                <div id="edui35" class="edui-box edui-button edui-for-removeformat edui-simple">
+                    <div id="edui35_state" class="edui-simple">
+                        <div class="edui-button-wrap edui-simple">
+                            <div id="edui35_body" unselectable="on" title="清除格式"
+                                 class="edui-button-body edui-simple">
+                                <div class="edui-box edui-icon edui-simple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="edui1_toolbarmsg" class="edui-editor-toolbarmsg edui-simple" style="display:none;">
+        <div id="edui1_upload_dialog" class="edui-editor-toolbarmsg-upload edui-simple">点击上传
+        </div>
+        <div class="edui-editor-toolbarmsg-close edui-simple"
+    </div>
+    <div id="edui1_toolbarmsg_label" class="edui-editor-toolbarmsg-label edui-simple"></div>
+    <div style="height:0;overflow:hidden;clear:both;" class="edui-simple"></div>
+</div>
+<div id="edui1_message_holder" class="edui-editor-messageholder edui-simple"></div>
+</div>
+<div id="edui1_iframeholder" class="edui-editor-iframeholder edui-simple"></div>
+<div id="edui1_bottombar" class="edui-editor-bottomContainer edui-simple">
+    <table class="edui-simple">
+        <tbody class="edui-simple">
+        <tr class="edui-simple">
+            <td id="edui1_elementpath" class="edui-editor-bottombar edui-simple"></td>
+            <td id="edui1_wordcount" class="edui-editor-wordcount edui-simple"></td>
+            <td id="edui1_scale" class="edui-editor-scale edui-simple">
+                <div class="edui-editor-icon edui-simple"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="edui1_scalelayer" class="edui-simple"></div>
+</div>
+</div>
+<div tabindex="-1" role="dialog" aria-modal="true" aria-label="趣头条自媒体发文规范" class="el-message-box__wrapper"
+     style="z-index: 2009; display: none;">
+    <div class="el-message-box dialog-publish-confirm el-message-box--center">
+        <div class="el-message-box__header">
+            <div class="el-message-box__title"><!----><span>趣头条自媒体发文规范</span></div>
+            <button type="button" aria-label="Close" class="el-message-box__headerbtn"><i
+                    class="el-message-box__close el-icon-close"></i></button>
+        </div>
+        <div class="el-message-box__content"><!---->
+            <div class="el-message-box__message"><p>亲爱的趣头条自媒体作者，为了提高文章的审核通过率和推荐效果，友情提示您在发文前仔细阅读《<a
+                    href="/link/pub-Specs" class="btn-link" target="_blank">趣头条自媒体发文规范</a>》</p></div>
+            <div class="el-message-box__input" style="display: none;">
+                <div class="el-input"><!----><input autocomplete="off" placeholder="" type="text" rows="2"
+                                                    validateevent="true" class="el-input__inner"><!----><!----><!---->
+                </div>
+                <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+            </div>
+        </div>
+        <div class="el-message-box__btns">
+            <button type="button" class="el-button el-button--default el-button--small" style="display: none;"><!---->
+                <!----><span>
+              取消
+            </span></button>
+            <button type="button" class="el-button el-button--default el-button--small el-button--primary "><!---->
+                <!----><span>
+              我知道了
+            </span></button>
+        </div>
+    </div>
+</div>
+<div class="el-loading-mask" style="top: 320px; left: 275px; height: 0px; width: 1088px; display: none;">
+    <div class="el-loading-spinner">
+        <svg viewBox="25 25 50 50" class="circular">
+            <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+        </svg><!----></div>
+</div>
+<div role="tooltip" id="el-tooltip-2671" aria-hidden="true" class="el-tooltip__popper is-dark"
+     style="transform-origin: left center 0px; z-index: 2011; display: none;">由当前帐号发文的活跃度、专业度、健康度、原创度、互动度综合评估出的指数。
+    <div x-arrow="" class="popper__arrow" style="top: 25px;"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/index.js"></script>
